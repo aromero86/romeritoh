@@ -103,6 +103,7 @@ main() {
     
     # Ejecutar todos los scripts de configuración
     execute_script "hyprland.sh"
+    execute_script "git.sh"
     execute_script "nvm.sh"
     execute_script "chromium.sh"
     execute_script "vscode.sh"

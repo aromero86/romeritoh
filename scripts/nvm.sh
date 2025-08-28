@@ -30,10 +30,6 @@ info() {
 
 log "Iniciando instalación de NVM y Node.js..."
 
-# Instalar Git
-log "Instalando Git..."
-sudo pacman -S --needed --noconfirm git
-
 # Instalar NVM
 log "Instalando NVM..."
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.4/install.sh | bash
