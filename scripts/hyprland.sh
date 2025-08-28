@@ -73,18 +73,6 @@ cat > ~/.config/hypr/hyprland.conf << 'EOF'
 monitor=,preferred,auto,auto
 
 
-###################
-### MY PROGRAMS ###
-###################
-
-# See https://wiki.hypr.land/Configuring/Keywords/
-
-# Set programs that you use
-# $terminal = kitty
-# $fileManager = dolphin
-# $menu = wofi --show drun
-
-
 #################
 ### AUTOSTART ###
 #################
@@ -92,10 +80,8 @@ monitor=,preferred,auto,auto
 # Autostart necessary processes (like notifications daemons, status bars, etc.)
 # Or execute your favorite apps at launch like this:
 
-# exec-once = $terminal
-# exec-once = nm-applet &
-# exec-once = waybar & hyprpaper & firefox
 exec-once = waybar
+exec-once = hyprpaper
 
 
 #############################
