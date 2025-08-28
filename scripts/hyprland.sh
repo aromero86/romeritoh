@@ -49,10 +49,6 @@ sudo pacman -S --needed --noconfirm kitty
 log "Instalando nano..."
 sudo pacman -S --needed --noconfirm nano
 
-# Instalar waybar
-log "Instalando waybar..."
-sudo pacman -S --needed --noconfirm waybar
-
 # Crear estructura modular de configuración
 log "Configurando estructura modular..."
 mkdir -p ~/.config/hypr
@@ -294,6 +290,10 @@ windowrule = suppressevent maximize, class:.*
 # Fix some dragging issues with XWayland
 windowrule = nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0
 EOF
+
+# Ejecutar script de waybar
+log "Ejecutando instalación de waybar..."
+bash "$SCRIPT_DIR/hyprland-waybar.sh"
 
 # Ejecutar script de keybindings
 log "Ejecutando configuración de keybindings..."
