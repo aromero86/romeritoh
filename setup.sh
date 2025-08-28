@@ -105,6 +105,7 @@ main() {
     execute_script "init-hyprland.sh"
     execute_script "nvm.sh"
     execute_script "chromium.sh"
+    execute_script "vscode.sh"
     
     log "¡Configuración finalizada!"
 }
