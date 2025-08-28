@@ -295,6 +295,10 @@ EOF
 log "Ejecutando instalación de waybar..."
 bash "$SCRIPT_DIR/hyprland-waybar.sh"
 
+# Ejecutar script de wofi
+log "Ejecutando instalación de wofi..."
+bash "$SCRIPT_DIR/hyprland-wofi.sh"
+
 # Ejecutar script de keybindings
 log "Ejecutando configuración de keybindings..."
 bash "$SCRIPT_DIR/hyprland-keybindings.sh"
