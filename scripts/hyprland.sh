@@ -111,44 +111,13 @@ env = HYPRCURSOR_SIZE,24
 
 
 
-#############
-### INPUT ###
-#############
-
-# https://wiki.hypr.land/Configuring/Variables/#input
-input {
-    kb_layout = us
-    kb_variant =
-    kb_model =
-    kb_options =
-    kb_rules =
-
-    follow_mouse = 1
-
-    sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
-
-    touchpad {
-        natural_scroll = false
-    }
-}
-
-# https://wiki.hypr.land/Configuring/Variables/#gestures
-gestures {
-    workspace_swipe = false
-}
-
-# Example per-device config
-# See https://wiki.hypr.land/Configuring/Keywords/#per-device-input-configs for more
-device {
-    name = epic-mouse-v1
-    sensitivity = -0.5
-}
 
 
 #################################
 ### Romeritoh                 ###
 #################################
 source = ~/.config/hypr/look-and-feel.conf
+source = ~/.config/hypr/input.conf
 source = ~/.config/hypr/keybindings.conf
 
 
@@ -180,6 +149,10 @@ bash "$SCRIPT_DIR/hyprland-wofi.sh"
 # Ejecutar script de look and feel
 log "Ejecutando configuración de Look and Feel..."
 bash "$SCRIPT_DIR/hyprland-lookAndFeel.sh"
+
+# Ejecutar script de input
+log "Ejecutando configuración de dispositivos de entrada..."
+bash "$SCRIPT_DIR/hyprland-input.sh"
 
 # Ejecutar script de keybindings
 log "Ejecutando configuración de keybindings..."
