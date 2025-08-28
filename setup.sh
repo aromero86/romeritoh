@@ -103,6 +103,8 @@ main() {
     
     # Ejecutar todos los scripts de configuración
     execute_script "init-hyprland.sh"
+    execute_script "nvm.sh"
+    execute_script "chromium.sh"
     
     log "¡Configuración finalizada!"
 }
