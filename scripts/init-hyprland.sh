@@ -30,6 +30,46 @@ info() {
 
 log "Iniciando configuración de Hyprland..."
 
-# Aquí iremos añadiendo paso a paso lo que me vayas diciendo
+# Actualizar el sistema
+log "Actualizando el sistema..."
+sudo pacman -Syu --noconfirm
+
+# Instalar Hyprland
+log "Instalando Hyprland..."
+sudo pacman -S --needed --noconfirm hyprland
+
+# Instalar terminal
+log "Instalando Kitty..."
+sudo pacman -S --needed --noconfirm kitty
+
+# Instalar nano
+log "Instalando nano..."
+sudo pacman -S --needed --noconfirm nano
+
+# Instalar waybar
+log "Instalando waybar..."
+sudo pacman -S --needed --noconfirm waybar
+
+# Crear estructura modular de configuración
+log "Configurando estructura modular..."
+mkdir -p ~/.config/hypr
+cat >> ~/.config/hypr/hyprland.conf << 'EOF'
+
+#################################
+### Romeritoh                 ###
+#################################
+source = ~/.config/hypr/keybindings.conf
+EOF
+
+# Crear archivo de keybindings
+log "Creando keybindings..."
+cat > ~/.config/hypr/keybindings.conf << 'EOF'
+# Romeritoh's Keybindings
+$mainMod = SUPER
+$terminal = kitty
+
+# Terminal
+bind = $mainMod, RETURN, exec, $terminal
+EOF
 
 log "✓ Script de Hyprland listo para construir paso a paso"
