@@ -102,7 +102,7 @@ main() {
     esac
     
     # Ejecutar todos los scripts de configuración
-    execute_script "init-hyprland.sh"
+    execute_script "hyprland.sh"
     execute_script "nvm.sh"
     execute_script "chromium.sh"
     execute_script "vscode.sh"
