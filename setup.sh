@@ -105,6 +105,7 @@ main() {
     execute_script "font.sh"
     execute_script "kitty.sh"
     execute_script "hyprland.sh"
+    execute_script "wofi.sh"
     execute_script "hyprpaper.sh"
     execute_script "git.sh"
     execute_script "nvm.sh"

@@ -1,0 +1,8 @@
+width=600
+height=410
+location=center
+prompt=Search Applications
+allow_images=false
+allow_markup=false
+insensitive=true
+matching=contains

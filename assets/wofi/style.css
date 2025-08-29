@@ -1,0 +1,76 @@
+
+* {
+    background: transparent;
+    background-color: #282828;
+    border: none;
+    font-family: "CaskaydiaCove Nerd Font", "Cascadia Code", monospace;
+    font-size: 22px;
+    outline: none;
+    text-shadow: none;
+}
+
+window {
+    
+}
+
+#outer-box {
+    border: 3px solid #b8bb26;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#inner-box {
+    
+}
+
+#scroll {
+    border-radius: 10px;
+    padding: 20px;
+    padding-top: 0;
+    padding-bottom: 5;
+    scroll-behavior: smooth;
+}
+
+
+#input {
+    all: unset;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    padding: 20px;
+    caret-color: #ebdbb2;
+    color: #ebdbb2;
+}
+
+
+#input image {
+    border: none;
+    color: #ebdbb2;
+    margin-right: 10px;
+}
+#input * {
+
+}
+
+#input:focus {
+
+}
+
+
+#entry {
+    padding: 10px;
+}
+
+#entry #text {
+    color: #a89983;
+}
+
+#entry:selected {
+
+}
+
+#entry:selected #text {
+    color: #ebdbb2;
+    font-weight: bold;
+}
+

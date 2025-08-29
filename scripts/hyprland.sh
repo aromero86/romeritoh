@@ -84,10 +84,6 @@ EOF
 log "Ejecutando instalación de waybar..."
 bash "$SCRIPT_DIR/hyprland-waybar.sh"
 
-# Ejecutar script de wofi
-log "Ejecutando instalación de wofi..."
-bash "$SCRIPT_DIR/hyprland-wofi.sh"
-
 # Ejecutar scripts de configuración modular
 log "Ejecutando configuración de monitores..."
 bash "$SCRIPT_DIR/hyprland-monitors.sh"

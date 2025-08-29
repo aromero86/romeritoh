@@ -28,10 +28,21 @@ info() {
     echo -e "${BLUE}[WOFI INFO] $1${NC}"
 }
 
-log "Iniciando instalación de Wofi..."
+log "Iniciando instalación y configuración de Wofi..."
 
 # Instalar wofi
 log "Instalando wofi..."
 sudo pacman -S --needed --noconfirm wofi
 
-log "✓ Wofi instalado correctamente"
+# Obtener directorio del script para acceder a assets
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ASSETS_DIR="$(dirname "$SCRIPT_DIR")/assets"
+
+# Crear directorio de configuración y copiar archivos
+log "Configurando wofi..."
+mkdir -p ~/.config/wofi
+cp "$ASSETS_DIR/wofi/config" ~/.config/wofi/
+cp "$ASSETS_DIR/wofi/style.css" ~/.config/wofi/
+
+log "✓ Wofi instalado y configurado correctamente"
+info "Configuración copiada desde assets/wofi/ (config + style.css)"
