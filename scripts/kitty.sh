@@ -88,7 +88,7 @@ window_border_width 0.5pt
 draw_minimal_borders yes
 window_margin_width 0
 single_window_margin_width -1
-window_padding_width 0
+window_padding_width 10
 placement_strategy center
 active_border_color #00ff00
 inactive_border_color #cccccc
@@ -140,7 +140,7 @@ color15 #ffffff
 shell .
 editor .
 close_on_child_death no
-allow_remote_control no
+allow_remote_control yes
 update_check_interval 24
 startup_session none
 clipboard_control write-clipboard write-primary
