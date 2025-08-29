@@ -113,7 +113,7 @@ main() {
     execute_script "vscode.sh"
     execute_script "btop.sh"
     execute_script "zsh.sh"
-    execute_script "greet.sh"
+    execute_script "sddm.sh"
     
     log "¡Configuración finalizada!"
 }
