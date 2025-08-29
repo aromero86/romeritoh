@@ -60,7 +60,11 @@ log "Creando hyprpaper.conf..."
 mkdir -p ~/.config/hypr
 
 cat > ~/.config/hypr/hyprpaper.conf << 'EOF'
-# Hyprpaper Configuration - Romeritoh
+# Wallpaper Configuration - Romeritoh
+
+#################
+### WALLPAPER ###
+#################
 
 # Preload wallpaper
 preload = ~/Pictures/astronaut.jpg

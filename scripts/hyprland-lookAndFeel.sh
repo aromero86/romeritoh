@@ -41,8 +41,6 @@ cat > ~/.config/hypr/look-and-feel.conf << 'EOF'
 ### LOOK AND FEEL ###
 #####################
 
-# Refer to https://wiki.hypr.land/Configuring/Variables/
-
 # https://wiki.hypr.land/Configuring/Variables/#general
 general {
     gaps_in = 6

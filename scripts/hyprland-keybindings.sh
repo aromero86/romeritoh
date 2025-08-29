@@ -33,7 +33,12 @@ log "Configurando keybindings de Hyprland..."
 # Crear archivo de keybindings
 log "Creando keybindings..."
 cat > ~/.config/hypr/keybindings.conf << 'EOF'
-# Romeritoh's Keybindings
+# Keybindings Configuration - Romeritoh
+
+###################
+### KEYBINDINGS ###
+###################
+
 $mainMod = SUPER
 $terminal = kitty
 

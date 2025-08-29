@@ -63,79 +63,25 @@ fi
 # Crear hyprland.conf nuevo y limpio
 log "Creando hyprland.conf nuevo..."
 cat > ~/.config/hypr/hyprland.conf << 'EOF'
-# Hyprland Configuration - Romeritoh
+#
+#  ███████████                                                ███   █████             █████     
+# ░░███░░░░░███                                              ░░░   ░░███             ░░███      
+#  ░███    ░███   ██████  █████████████    ██████  ████████  ████  ███████    ██████  ░███████  
+#  ░██████████   ███░░███░░███░░███░░███  ███░░███░░███░░███░░███ ░░░███░    ███░░███ ░███░░███ 
+#  ░███░░░░░███ ░███ ░███ ░███ ░███ ░███ ░███████  ░███ ░░░  ░███   ░███    ░███ ░███ ░███ ░███ 
+#  ░███    ░███ ░███ ░███ ░███ ░███ ░███ ░███░░░   ░███      ░███   ░███ ███░███ ░███ ░███ ░███ 
+#  █████   █████░░██████  █████░███ █████░░██████  █████     █████  ░░█████ ░░██████  ████ █████
+# ░░░░░   ░░░░░  ░░░░░░  ░░░░░ ░░░ ░░░░░  ░░░░░░  ░░░░░     ░░░░░    ░░░░░   ░░░░░░  ░░░░ ░░░░░ 
+#                                                                                               
 
-################
-### MONITORS ###
-################
-
-# See https://wiki.hypr.land/Configuring/Monitors/
-monitor=,preferred,auto,auto
-
-
-#################
-### AUTOSTART ###
-#################
-
-# Autostart necessary processes (like notifications daemons, status bars, etc.)
-# Or execute your favorite apps at launch like this:
-
-exec-once = waybar
-exec-once = hyprpaper
-
-
-#############################
-### ENVIRONMENT VARIABLES ###
-#############################
-
-# See https://wiki.hypr.land/Configuring/Environment-variables/
-
-env = XCURSOR_SIZE,24
-env = HYPRCURSOR_SIZE,24
-
-###################
-### PERMISSIONS ###
-###################
-
-# See https://wiki.hypr.land/Configuring/Permissions/
-# Please note permission changes here require a Hyprland restart and are not applied on-the-fly
-# for security reasons
-
-# ecosystem {
-#   enforce_permissions = 1
-# }
-
-# permission = /usr/(bin|local/bin)/grim, screencopy, allow
-# permission = /usr/(lib|libexec|lib64)/xdg-desktop-portal-hyprland, screencopy, allow
-# permission = /usr/(bin|local/bin)/hyprpm, plugin, allow
-
-
-
-
-
-#################################
-### Romeritoh                 ###
-#################################
+source = ~/.config/hypr/monitors.conf
+source = ~/.config/hypr/autostart.conf
+source = ~/.config/hypr/environment.conf
+source = ~/.config/hypr/permissions.conf
 source = ~/.config/hypr/look-and-feel.conf
 source = ~/.config/hypr/input.conf
 source = ~/.config/hypr/keybindings.conf
-
-
-##############################
-### WINDOWS AND WORKSPACES ###
-##############################
-
-# See https://wiki.hypr.land/Configuring/Window-Rules/ for more
-# See https://wiki.hypr.land/Configuring/Workspace-Rules/ for workspace rules
-
-# Example windowrule
-# windowrule = float,class:^(kitty)$,title:^(kitty)$
-
-# Ignore maximize requests from apps. You'll probably like this.
-windowrule = suppressevent maximize, class:.*
-
-# Fix some dragging issues with XWayland
-windowrule = nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0
+source = ~/.config/hypr/windows.conf
 EOF
 
 # Ejecutar script de waybar
@@ -146,13 +92,27 @@ bash "$SCRIPT_DIR/hyprland-waybar.sh"
 log "Ejecutando instalación de wofi..."
 bash "$SCRIPT_DIR/hyprland-wofi.sh"
 
-# Ejecutar script de look and feel
+# Ejecutar scripts de configuración modular
+log "Ejecutando configuración de monitores..."
+bash "$SCRIPT_DIR/hyprland-monitors.sh"
+
+log "Ejecutando configuración de autostart..."
+bash "$SCRIPT_DIR/hyprland-autostart.sh"
+
+log "Ejecutando configuración de variables de entorno..."
+bash "$SCRIPT_DIR/hyprland-environment.sh"
+
+log "Ejecutando configuración de permisos..."
+bash "$SCRIPT_DIR/hyprland-permissions.sh"
+
 log "Ejecutando configuración de Look and Feel..."
 bash "$SCRIPT_DIR/hyprland-lookAndFeel.sh"
 
-# Ejecutar script de input
 log "Ejecutando configuración de dispositivos de entrada..."
 bash "$SCRIPT_DIR/hyprland-input.sh"
+
+log "Ejecutando configuración de ventanas y workspaces..."
+bash "$SCRIPT_DIR/hyprland-windows.sh"
 
 # Ejecutar script de keybindings
 log "Ejecutando configuración de keybindings..."
