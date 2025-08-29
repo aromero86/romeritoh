@@ -102,6 +102,8 @@ main() {
     esac
     
     # Ejecutar todos los scripts de configuración
+    execute_script "font.sh"
+    execute_script "kitty.sh"
     execute_script "hyprland.sh"
     execute_script "hyprpaper.sh"
     execute_script "git.sh"

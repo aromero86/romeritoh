@@ -41,10 +41,6 @@ sudo pacman -Syu --noconfirm
 log "Instalando Hyprland..."
 sudo pacman -S --needed --noconfirm hyprland
 
-# Instalar terminal
-log "Instalando Kitty..."
-sudo pacman -S --needed --noconfirm kitty
-
 # Instalar nano
 log "Instalando nano..."
 sudo pacman -S --needed --noconfirm nano

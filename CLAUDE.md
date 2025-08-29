@@ -15,22 +15,62 @@ Este proyecto busca crear un sistema de scripts modulares para configurar Arch L
 
 ### Scripts Modulares (Carpeta `scripts/`)
 
-#### 1. `init-hyprland.sh`
-**Propósito**: Configuración básica de Hyprland y entorno de ventanas Wayland
-
-**Estado actual**: ✅ Funcional básico
-- Actualización del sistema (`pacman -Syu`)
-- Instalación de Hyprland
-- Instalación de Kitty (terminal)
-- Instalación de nano (editor)
-- Instalación de waybar (barra de estado)
-- Creación de estructura modular de configuración
-- Archivo de keybindings personalizado con variable `$terminal`
+#### 1. Sistema Hyprland (Completamente Modularizado)
+**Scripts principales**:
+- `hyprland.sh`: Script maestro que orquesta todos los sub-módulos
+- `hyprland-monitors.sh`: Configuración de monitores
+- `hyprland-autostart.sh`: Aplicaciones de inicio automático  
+- `hyprland-environment.sh`: Variables de entorno
+- `hyprland-permissions.sh`: Permisos de seguridad
+- `hyprland-lookAndFeel.sh`: Estética (gaps, bordes, animaciones, etc.)
+- `hyprland-input.sh`: Dispositivos de entrada (teclado US + AltGr internacional)
+- `hyprland-windows.sh`: Reglas de ventanas y workspaces
+- `hyprland-keybindings.sh`: Atajos de teclado personalizados
+- `hyprland-waybar.sh`: Sub-módulo para waybar
+- `hyprland-wofi.sh`: Sub-módulo para wofi (launcher)
 
 **Keybindings configurados**:
-- `Super + Enter`: Abrir terminal (kitty)
+- `Super + Enter`: Terminal (kitty)
+- `Super + Space`: Launcher (wofi)
+- `Super + C`: Cerrar ventana
+- `Super + Flechas`: Cambiar foco
+- `Super + Shift + Flechas`: Mover ventanas  
+- `Super + Alt + Flechas`: Redimensionar ventanas (50px)
+- `Super + 1-9`: Cambiar workspace
+- `Super + Shift + 1-9`: Mover ventana a workspace
 
-#### 2. `nvm.sh`
+#### 2. `font.sh`
+**Propósito**: Instalación de fuentes del sistema
+
+**Estado actual**: ✅ Completo
+- Cascadia Code Nerd Font (fuente principal)
+- Font Awesome (iconos adicionales)
+- Refresco de cache de fuentes
+
+#### 3. `kitty.sh`
+**Propósito**: Instalación y configuración de terminal
+
+**Estado actual**: ✅ Completo
+- Instalación de Kitty terminal
+- Configuración completa con Cascadia Code Nerd Font
+- Esquema de colores optimizado
+- Configuración de rendimiento y comportamiento
+
+#### 4. `hyprpaper.sh`
+**Propósito**: Configuración de wallpaper
+
+**Estado actual**: ✅ Completo
+- Instalación de hyprpaper
+- Copia de astronaut.jpg a ~/Pictures
+- Configuración automática de wallpaper
+
+#### 5. `git.sh`
+**Propósito**: Instalación de Git
+
+**Estado actual**: ✅ Completo
+- Instalación de Git desde repositorios oficiales
+
+#### 6. `nvm.sh`
 **Propósito**: Instalación de Node Version Manager y Node.js
 
 **Estado actual**: ✅ Completo
@@ -38,11 +78,17 @@ Este proyecto busca crear un sistema de scripts modulares para configurar Arch L
 - Carga de NVM en sesión actual
 - Instalación de la última versión de Node.js
 
-#### 3. `chromium.sh`
+#### 7. `chromium.sh`
 **Propósito**: Instalación de navegador web
 
 **Estado actual**: ✅ Completo
 - Instalación de Chromium desde repositorios oficiales
+
+#### 8. `vscode.sh`
+**Propósito**: Instalación de Visual Studio Code
+
+**Estado actual**: ✅ Completo
+- Instalación de VSCode desde repositorios oficiales
 
 ## Metodología de Trabajo
 
@@ -60,24 +106,47 @@ Este proyecto busca crear un sistema de scripts modulares para configurar Arch L
 
 ## Configuración Modular de Hyprland
 
-### Estructura de Archivos
+### Estructura de Archivos Completamente Modularizada
 ```
 ~/.config/hypr/
-├── hyprland.conf           # Configuración principal
-└── keybindings.conf        # Keybindings personalizados (Romeritoh)
+├── hyprland.conf           # Orquestador principal (solo imports)
+├── monitors.conf           # Configuración de monitores
+├── autostart.conf          # Aplicaciones de inicio
+├── environment.conf        # Variables de entorno
+├── permissions.conf        # Permisos de seguridad
+├── look-and-feel.conf      # Estética y animaciones
+├── input.conf              # Dispositivos de entrada
+├── keybindings.conf        # Atajos de teclado
+├── windows.conf            # Reglas de ventanas
+└── hyprpaper.conf          # Configuración de wallpaper
 ```
 
 ### Sistema de Variables
 - `$mainMod = SUPER`: Tecla modificadora principal
 - `$terminal = kitty`: Terminal por defecto (reutilizable)
 
-### Integración
-El archivo principal `hyprland.conf` incluye la sección personalizada:
+### Integración Modular
+El archivo principal `hyprland.conf` actúa como orquestador:
 ```bash
-#################################
-### Romeritoh                 ###
-#################################
+#
+#  ███████████                                                ███   █████             █████     
+# ░░███░░░░░███                                              ░░░   ░░███             ░░███      
+#  ░███    ░███   ██████  █████████████    ██████  ████████  ████  ███████    ██████  ░███████  
+#  ░██████████   ███░░███░░███░░███░░███  ███░░███░░███░░███░░███ ░░░███░    ███░░███ ░███░░███ 
+#  ░███░░░░░███ ░███ ░███ ░███ ░███ ░███ ░███████  ░███ ░░░  ░███   ░███    ░███ ░███ ░███ ░███ 
+#  ░███    ░███ ░███ ░███ ░███ ░███ ░███ ░███░░░   ░███      ░███   ░███ ███░███ ░███ ░███ ░███ 
+#  █████   █████░░██████  █████░███ █████░░██████  █████     █████  ░░█████ ░░██████  ████ █████
+# ░░░░░   ░░░░░  ░░░░░░  ░░░░░ ░░░ ░░░░░  ░░░░░░  ░░░░░     ░░░░░    ░░░░░   ░░░░░░  ░░░░ ░░░░░ 
+#                                                                                               
+
+source = ~/.config/hypr/monitors.conf
+source = ~/.config/hypr/autostart.conf
+source = ~/.config/hypr/environment.conf
+source = ~/.config/hypr/permissions.conf
+source = ~/.config/hypr/look-and-feel.conf
+source = ~/.config/hypr/input.conf
 source = ~/.config/hypr/keybindings.conf
+source = ~/.config/hypr/windows.conf
 ```
 
 ## Gestión de Versiones
@@ -87,18 +156,27 @@ Todas las versiones fijadas se documentan en `README.md` para facilitar el mante
 ## Estado del Proyecto
 
 ### ✅ Completado
-- Script principal con arquitectura modular
-- Hyprland básico funcional
-- Terminal (kitty) con keybinding
-- NVM y Node.js
-- Chromium
-- Sistema de configuración modular para Hyprland
+- **Script principal** con arquitectura completamente modular
+- **Sistema Hyprland** completamente modularizado en 10 sub-módulos
+- **Fuentes del sistema**: Cascadia Code Nerd Font + Font Awesome
+- **Terminal Kitty** con configuración completa y fuente optimizada
+- **Wallpaper system**: hyprpaper con astronaut.jpg automático
+- **Keybindings completos**: foco, movimiento, redimensionado, workspaces
+- **Aplicaciones core**: Git, NVM/Node.js, Chromium, VSCode
+- **Input system**: Teclado US + AltGr internacional para acentos
+- **Waybar y Wofi** integrados como sub-módulos
 
-### 🚧 En Progreso
-- Configuración completa de waybar (funcional pero necesita personalización)
+### 🎯 Sistema Completamente Funcional
+- **13 scripts modulares** trabajando en perfecta armonía
+- **Configuración cero-dependencias** - todo se instala automáticamente  
+- **Separación total de responsabilidades** - cada módulo es independiente
+- **Fácil mantenimiento** - cada aspecto en su propio archivo
 
-### 📋 Pendiente
-- Ver lista de tareas en README.md
+### 📋 Posibles Mejoras Futuras
+- Configuración de waybar personalizada (colores, widgets)
+- Temas e iconos del sistema
+- Display manager (SDDM)
+- Scripts para audio avanzado
 
 ## Notas Técnicas
 
