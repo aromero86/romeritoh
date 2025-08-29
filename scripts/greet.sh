@@ -54,7 +54,7 @@ fi
 
 # Instalar greetd y tuigreet
 log "Instalando greetd y tuigreet..."
-sudo pacman -S --needed greetd greetd-tuigreet
+sudo pacman -S --needed --noconfirm greetd greetd-tuigreet
 
 # Crear directorio de configuración
 sudo mkdir -p /etc/greetd
