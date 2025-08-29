@@ -122,16 +122,17 @@ if [ -f "$HOME/.zshrc" ]; then
     fi
 fi
 
-# Agregar figlet al final del .zshrc
-log "Configurando figlet de bienvenida..."
+# Agregar clear con figlet al final del .zshrc
+log "Configurando clear con figlet de bienvenida..."
 if [ -f "$HOME/.zshrc" ]; then
-    if ! grep -q "figlet \"Romeritoh\"" "$HOME/.zshrc"; then
+    if ! grep -q "^clear$" "$HOME/.zshrc"; then
         echo "" >> "$HOME/.zshrc"
-        echo "figlet \"Romeritoh\" -f \"miniwi\" -d ~/.romeritoh/figlet/ -w 120" >> "$HOME/.zshrc"
+        echo "clear" >> "$HOME/.zshrc"
+        echo "" >> "$HOME/.zshrc"
         echo "export AFTER_FIGLET=1" >> "$HOME/.zshrc"
-        info "Figlet de bienvenida configurado en .zshrc"
+        info "Clear con figlet de bienvenida configurado en .zshrc"
     else
-        info "Figlet de bienvenida ya está configurado en .zshrc"
+        info "Clear con figlet de bienvenida ya está configurado en .zshrc"
     fi
 fi
 
