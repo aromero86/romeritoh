@@ -49,8 +49,8 @@ general {
     border_size = 3
 
     # https://wiki.hypr.land/Configuring/Variables/#variable-types for info about colors
-    col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg
-    col.inactive_border = rgba(595959aa)
+    col.active_border = rgba(b8bb26ee) rgba(d3869bee) 45deg
+    col.inactive_border = rgba(928374aa)
 
     # Set to true enable resizing windows by clicking and dragging on borders and gaps
     resize_on_border = false
@@ -67,11 +67,11 @@ decoration {
     rounding_power = 2
 
     # Change transparency of focused and unfocused windows
-    active_opacity = 0.9
-    inactive_opacity = 0.8
+    active_opacity = 1
+    inactive_opacity = 1
 
     shadow {
-        enabled = true
+        enabled = false
         range = 4
         render_power = 3
         color = rgba(1a1a1aee)
@@ -79,10 +79,9 @@ decoration {
 
     # https://wiki.hypr.land/Configuring/Variables/#blur
     blur {
-        enabled = true
+        enabled = false
         size = 3
         passes = 1
-
         vibrancy = 0.1696
     }
 }
@@ -140,8 +139,8 @@ master {
 
 # https://wiki.hypr.land/Configuring/Variables/#misc
 misc {
-    force_default_wallpaper = -1 # Set to 0 or 1 to disable the anime mascot wallpapers
-    disable_hyprland_logo = false # If true disables the random hyprland logo / anime girl background. :(
+    force_default_wallpaper = 0 # Set to 0 or 1 to disable the anime mascot wallpapers
+    disable_hyprland_logo = true # If true disables the random hyprland logo / anime girl background. :(
 }
 EOF
 
