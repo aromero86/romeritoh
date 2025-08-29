@@ -49,7 +49,7 @@ bind = $mainMod, RETURN, exec, cd ~ && $terminal
 bind = $mainMod, Space, exec, wofi --show drun
 
 # Basic window management
-bind = $mainMod, C, killactive,
+bind = $mainMod, Q, killactive,
 bind = $mainMod, M, exit,
 bind = $mainMod, V, togglefloating,
 bind = $mainMod, P, pseudo, # dwindle
