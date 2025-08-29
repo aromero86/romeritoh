@@ -32,7 +32,7 @@ Este proyecto busca crear un sistema de scripts modulares para configurar Arch L
 **Keybindings configurados**:
 - `Super + Enter`: Terminal (kitty)
 - `Super + Space`: Launcher (wofi)
-- `Super + C`: Cerrar ventana
+- `Super + Q`: Cerrar ventana
 - `Super + Flechas`: Cambiar foco
 - `Super + Shift + Flechas`: Mover ventanas  
 - `Super + Alt + Flechas`: Redimensionar ventanas (50px)
@@ -89,6 +89,16 @@ Este proyecto busca crear un sistema de scripts modulares para configurar Arch L
 
 **Estado actual**: ✅ Completo
 - Instalación de VSCode desde repositorios oficiales
+
+#### 9. `greet.sh`
+**Propósito**: Display Manager TUI aesthetic (greetd + tuigreet)
+
+**Estado actual**: ✅ Completo
+- Instalación de greetd (display manager ligero)
+- Configuración de tuigreet (greeter TUI aesthetic)
+- Desactivación automática de otros display managers
+- Configuración para Hyprland con autenticación por password
+- Activación automática en próximo reinicio
 
 ## Metodología de Trabajo
 
@@ -167,7 +177,7 @@ Todas las versiones fijadas se documentan en `README.md` para facilitar el mante
 - **Waybar y Wofi** integrados como sub-módulos
 
 ### 🎯 Sistema Completamente Funcional
-- **13 scripts modulares** trabajando en perfecta armonía
+- **14 scripts modulares** trabajando en perfecta armonía
 - **Configuración cero-dependencias** - todo se instala automáticamente  
 - **Separación total de responsabilidades** - cada módulo es independiente
 - **Fácil mantenimiento** - cada aspecto en su propio archivo
