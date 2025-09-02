@@ -2,7 +2,7 @@
 	"layer": "top",
 	"modules-left": ["custom/launcher", "backlight", "wireplumber", "custom/media"],
 	"modules-center": ["hyprland/workspaces"],
-	"modules-right": ["network", "cpu", "memory", "battery", "clock"],
+	"modules-right": ["bluetooth", "network", "cpu", "memory", "battery", "clock"],
 	
   "wireplumber": {
     "tooltip": false,
@@ -116,5 +116,16 @@
         "class<firefox>": " ",
         "class<kitty>": " "
     }
+  },
+
+  "bluetooth": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "enabled": "󰂯",
+      "disabled": "󰂲",
+      "connected": "󰂯"
+    },
+    "on-click": "kitty --title bluetuith -- bluetuith"
   }
 }

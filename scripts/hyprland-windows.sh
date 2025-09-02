@@ -54,6 +54,11 @@ windowrule = float,class:^(kitty)$,title:^(nmtui)$
 windowrule = size 900 700,class:^(kitty)$,title:^(nmtui)$
 windowrule = center,class:^(kitty)$,title:^(nmtui)$
 
+# Floating window for bluetuith in kitty
+windowrule = float,class:^(kitty)$,title:^(bluetuith)$
+windowrule = size 1000 700,class:^(kitty)$,title:^(bluetuith)$
+windowrule = center,class:^(kitty)$,title:^(bluetuith)$
+
 # Ignore maximize requests from apps. You'll probably like this.
 windowrule = suppressevent maximize, class:.*
 
