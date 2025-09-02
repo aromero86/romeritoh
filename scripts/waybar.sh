@@ -34,9 +34,13 @@ info() {
 
 log "Iniciando instalación de Waybar..."
 
-# Instalar waybar y alsa-utils
-log "Instalando waybar y alsa-utils..."
-sudo pacman -S --needed --noconfirm waybar alsa-utils
+# Instalar waybar, alsa-utils, networkmanager, brightnessctl y playerctl
+log "Instalando waybar, alsa-utils, networkmanager, brightnessctl y playerctl..."
+sudo pacman -S --needed --noconfirm waybar alsa-utils networkmanager brightnessctl playerctl
+
+# Agregar usuario al grupo video para control de brillo
+log "Agregando usuario al grupo video para control de brillo..."
+sudo usermod -a -G video $USER
 
 # Crear directorio de configuración
 log "Creando directorio de configuración..."
@@ -48,5 +52,10 @@ cp "$PROJECT_ROOT/assets/waybar/config" ~/.config/waybar/
 cp "$PROJECT_ROOT/assets/waybar/styles.css" ~/.config/waybar/
 
 info "Configuración copiada desde assets/waybar/"
+
+# Habilitar e iniciar NetworkManager
+log "Habilitando e iniciando NetworkManager..."
+sudo systemctl enable NetworkManager
+sudo systemctl start NetworkManager
 
 log "✓ Waybar instalado y configurado correctamente"
