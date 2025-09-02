@@ -40,6 +40,7 @@ cat > ~/.config/hypr/keybindings.conf << 'EOF'
 ###################
 
 $mainMod = SUPER
+$altMod = ALT
 $terminal = kitty
 
 # Terminal
@@ -62,10 +63,10 @@ bind = $mainMod, up, movefocus, u
 bind = $mainMod, down, movefocus, d
 
 # Resize windows with mainMod + ALT + arrow keys
-bind = $mainMod ALT, left, resizeactive, -50 0
-bind = $mainMod ALT, right, resizeactive, 50 0
-bind = $mainMod ALT, up, resizeactive, 0 -50
-bind = $mainMod ALT, down, resizeactive, 0 50
+bind = $mainMod $altMod, left, resizeactive, -50 0
+bind = $mainMod $altMod, right, resizeactive, 50 0
+bind = $mainMod $altMod, up, resizeactive, 0 -50
+bind = $mainMod $altMod, down, resizeactive, 0 50
 
 # Move windows with mainMod + SHIFT + arrow keys
 bind = $mainMod SHIFT, left, movewindow, l
