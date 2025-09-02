@@ -44,8 +44,10 @@ cat > ~/.config/hypr/windows.conf << 'EOF'
 # See https://wiki.hypr.land/Configuring/Window-Rules/ for more
 # See https://wiki.hypr.land/Configuring/Workspace-Rules/ for workspace rules
 
-# Example windowrule
-# windowrule = float,class:^(kitty)$,title:^(kitty)$
+# Floating window for alsamixer in kitty
+windowrule = float,class:^(kitty)$,title:^(alsamixer)$
+windowrule = size 800 600,class:^(kitty)$,title:^(alsamixer)$
+windowrule = center,class:^(kitty)$,title:^(alsamixer)$
 
 # Ignore maximize requests from apps. You'll probably like this.
 windowrule = suppressevent maximize, class:.*

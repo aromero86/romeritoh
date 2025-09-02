@@ -82,7 +82,7 @@ EOF
 
 # Ejecutar script de waybar
 log "Ejecutando instalación de waybar..."
-bash "$SCRIPT_DIR/hyprland-waybar.sh"
+bash "$SCRIPT_DIR/waybar.sh"
 
 # Ejecutar scripts de configuración modular
 log "Ejecutando configuración de monitores..."
