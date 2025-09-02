@@ -114,6 +114,7 @@ main() {
     execute_script "btop.sh"
     execute_script "zsh.sh"
     execute_script "sddm.sh"
+    execute_script "aur.sh"
     
     log "¡Configuración finalizada!"
 }
